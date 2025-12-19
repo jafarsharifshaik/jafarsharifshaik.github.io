@@ -1,0 +1,150 @@
+---
+const experiences = [
+  {
+    title: 'Senior Data Engineer',
+    company: 'Kraft Heinz',
+    location: 'Chicago, Illinois',
+    period: 'Jan 2024 - Present',
+    current: true,
+    highlights: [
+      'Designed and implemented ELT Pipelines using DBT and orchestrated using Dagster',
+      'Developed custom Python handlers to automate data ingestion to Snowflake',
+      'Created generic macros for reusability across DBT projects',
+      'Mentored data engineers on advanced DBT and Snowflake features',
+      'Data owner and SME for NA sales area',
+    ],
+    tech: ['dbt', 'Dagster', 'Snowflake', 'Python', 'Azure DevOps'],
+  },
+  {
+    title: 'Data Engineer',
+    company: 'Wolters Kluwer',
+    location: 'Chicago, Illinois',
+    period: 'Jun 2023 - Dec 2023',
+    highlights: [
+      'Led Oracle to Snowflake migration - 50% query response improvement',
+      'Built Python automation for DDL conversion - 80% less manual effort',
+      'Designed Snowpipe + SQS + S3 workflow - 30% faster data loading',
+      'Developed DBT pipelines powering 30+ business dashboards',
+      'Optimized queries - 30% reduction in Snowflake credits',
+    ],
+    tech: ['Snowflake', 'Python', 'dbt', 'Airflow', 'AWS S3', 'SQS'],
+  },
+  {
+    title: 'Graduate Research Analyst',
+    company: 'University of Cincinnati',
+    location: 'Cincinnati, Ohio',
+    period: 'Jan 2023 - May 2023',
+    highlights: [
+      'Built healthcare system models using SQL data profiling',
+      'Python-based data ingestion reducing errors by 20%',
+      'Created Tableau dashboards improving efficiency by 30%',
+    ],
+    tech: ['Python', 'SQL', 'Tableau', 'MS SQL Server'],
+  },
+  {
+    title: 'Senior Data Engineer',
+    company: 'Novus Platform OFC',
+    location: 'Hyderabad, India',
+    period: 'Mar 2020 - Aug 2022',
+    highlights: [
+      'Built RWD alerts system generating $7M USD annual revenue',
+      'Automated ETL with Airflow/AWS Glue - 40% faster processing',
+      'Architected Click Stream ingestion with AWS Kinesis',
+      'Designed frameworks for Data Quality and Governance',
+    ],
+    tech: ['Airflow', 'AWS Glue', 'PySpark', 'Kinesis', 'DynamoDB'],
+  },
+  {
+    title: 'Data Engineer',
+    company: 'Neudesic Technologies',
+    location: 'Hyderabad, India',
+    period: 'Oct 2019 - Feb 2020',
+    highlights: [
+      'Migrated 100+ pipelines to Airflow on Google Cloud',
+      'Saved $500/month with lifecycle policies',
+    ],
+    tech: ['Airflow', 'Google Cloud', 'Informatica', 'Control-M'],
+  },
+  {
+    title: 'Data Engineer',
+    company: 'Virtusa Consulting',
+    location: 'Hyderabad, India',
+    period: 'May 2016 - Oct 2019',
+    highlights: [
+      '20% runtime reduction via SQL optimization',
+      'Built ETL for multi-terabyte datasets from SAP, Oracle, Salesforce',
+      'Tableau dashboards saving $820K USD in operations',
+    ],
+    tech: ['Informatica', 'SQL', 'Python', 'Tableau', 'PL/SQL'],
+  },
+];
+---
+
+<section id="experience" class="section">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="section-title">Experience</h2>
+      <p class="section-subtitle mx-auto">
+        8+ years building data pipelines and analytics solutions
+      </p>
+    </div>
+
+    <div class="relative">
+      {experiences.map((exp, index) => (
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay={index * 100}>
+          <div class="timeline-dot" />
+
+          <div class="card p-6 ml-4">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                  {exp.title}
+                </h3>
+                <p class="text-primary-600 dark:text-primary-400 font-medium">
+                  {exp.company}
+                </p>
+              </div>
+              <div class="text-sm text-slate-500 dark:text-slate-400">
+                <div class="flex items-center gap-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  {exp.period}
+                  {exp.current && (
+                    <span class="ml-2 px-2 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs rounded-full">
+                      Current
+                    </span>
+                  )}
+                </div>
+                <div class="flex items-center gap-1 mt-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  {exp.location}
+                </div>
+              </div>
+            </div>
+
+            <ul class="space-y-2 mb-4">
+              {exp.highlights.map((highlight) => (
+                <li class="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
+                  <svg class="w-4 h-4 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {highlight}
+                </li>
+              ))}
+            </ul>
+
+            <div class="flex flex-wrap gap-2">
+              {exp.tech.map((tech) => (
+                <span class="tech-badge text-xs">{tech}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

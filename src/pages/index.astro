@@ -1,0 +1,44 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import TerminalHero from '@/components/Hero/TerminalHero';
+import TechGrid from '@/components/Skills/TechGrid';
+import CertificationBadges from '@/components/Skills/CertificationBadges.astro';
+import ExperienceTimeline from '@/components/Experience/ExperienceTimeline.astro';
+import AboutSection from '@/components/About/AboutSection.astro';
+import ContactSection from '@/components/Contact/ContactSection.astro';
+---
+
+<BaseLayout title="Jafar Sharif Shaik | Senior Data Engineer">
+  <!-- Hero Section with Terminal -->
+  <TerminalHero client:load />
+
+  <!-- About Section -->
+  <AboutSection />
+
+  <!-- Experience Section -->
+  <ExperienceTimeline />
+
+  <!-- Skills Section -->
+  <section id="skills" class="section bg-slate-50 dark:bg-dark-card/50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="section-title">Tech Stack</h2>
+        <p class="section-subtitle mx-auto">
+          Technologies I work with to build scalable data solutions
+        </p>
+      </div>
+
+      <TechGrid client:visible />
+
+      <div class="mt-16">
+        <h3 class="text-2xl font-bold text-center mb-8 text-slate-900 dark:text-white">
+          Certifications
+        </h3>
+        <CertificationBadges />
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <ContactSection />
+</BaseLayout>
