@@ -4,41 +4,52 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Personal portfolio website for Jafar Sharif Shaik, deployed via GitHub Pages at jafasharif.github.io. Built using the "MyResume" Bootstrap template from BootstrapMade.
+Personal portfolio website for Jafar Sharif Shaik, deployed via GitHub Pages. Built with Astro, React, Tailwind CSS, and Framer Motion.
 
-## Development
+## Commands
 
-This is a static HTML/CSS/JS website with no build process. To develop locally:
-- Open `index.html` directly in a browser, or
-- Use any local server (e.g., `python -m http.server 8000`)
+```bash
+# Development
+npm run dev          # Start dev server at localhost:4321
+
+# Build
+npm run build        # Build for production (outputs to dist/)
+npm run preview      # Preview production build
+```
 
 ## Architecture
 
-**Main Files:**
-- `index.html` - Single-page portfolio with sections: Hero, About, Skills, Resume, Projects (Portfolio), Endorsements (Testimonials), Contact
-- `portfolio-details*.html` - Individual project detail pages (8 variants for different projects)
-- `assets/css/style.css` - Custom styles extending Bootstrap
-- `assets/js/main.js` - Site interactivity (navigation, animations, portfolio filtering, lightbox)
+**Framework:** Astro 4.x with React islands for interactive components
 
-**Key Libraries (loaded via CDN/vendor):**
-- Bootstrap 5.3.1 - Layout and components
-- AOS - Scroll animations
-- Typed.js - Hero typing effect
-- Isotope - Portfolio filtering
-- GLightbox - Image/project lightbox
-- Swiper - Testimonials slider
+**Key Directories:**
+- `src/pages/` - Astro pages (index.astro is the main page)
+- `src/components/` - UI components (Astro + React)
+- `src/layouts/` - Base layout with dark mode support
+- `src/styles/` - Global CSS with Tailwind
+- `public/` - Static assets (images, resume PDF)
 
-**Content Assets:**
-- `assets/img/` - Profile images, favicons
-- `assets/img/portfolio/` - Portfolio thumbnails
-- `assets/img/project/` - Project detail images organized by project name
+**Component Structure:**
+```
+src/components/
+├── Hero/TerminalHero.tsx      # React - animated terminal intro
+├── Skills/TechGrid.tsx        # React - tech stack grid with animations
+├── Skills/CertificationBadges.astro
+├── Experience/ExperienceTimeline.astro
+├── About/AboutSection.astro
+├── Contact/ContactSection.astro
+└── common/
+    ├── Navigation.astro       # With dark mode toggle
+    └── Footer.astro
+```
 
-## Portfolio Filtering
+**Styling:**
+- Tailwind CSS with custom config (tailwind.config.js)
+- Dark mode via `class` strategy
+- Custom component classes in `src/styles/globals.css`
 
-Projects in the Portfolio section use CSS class filters:
-- `filter-de` - Data Engineering
-- `filter-da` - Data Analytics
-- `filter-ds` - Data Science and EDA
-- `filter-pm` - Project Management
+## Key Patterns
 
-To add a new project, add a portfolio item div in `index.html` with appropriate filter classes and create a corresponding `portfolio-details*.html` page.
+- React components use `client:load` or `client:visible` directives for hydration
+- Dark mode toggle stores preference in localStorage
+- Framer Motion for animations in React components
+- Path aliases configured: `@/` maps to `src/`
